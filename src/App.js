@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
+import Home from './pages/Home'
+import { Project1, Project2, Project3, Project4 } from './pages/Projects'
+import Contact from './pages/Contact'
 
-function App() {
+// https://www.youtube.com/watch?v=slzhcco9Cog
+// https://github.com/JustFS/react-showcase
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Switch>
+      <Route exact path='/' component={Home} />
+      <Route path='/project-1' component={Project1} />
+      <Route path='/project-2' component={Project2} />
+      <Route path='/project-3' component={Project3} />
+      <Route path='/project-4' component={Project4} />
+      <Route path='/contact' component={Contact} />
+      <Redirect to='/' />
+    </Switch>
+  )
 }
 
-export default App;
+export default App
